@@ -1,0 +1,22 @@
+val logName = ".presence"
+var Timer presenceTimerSeinpiller = null 
+rule "PresenceMonitor_Seinpiller"
+    when   
+            Item PresenceMonitor_Seinpiller changed from OFF to ON
+    then        
+
+    Presence_Seinpiller.sendCommand(ON)    
+    logInfo(logName, "Seinpiller is Present");
+    if (presenceTimerSeinpiller!=null){
+                    presenceTimerSeinpiller.cancel()
+                    presenceTimerSeinpiller = null;
+    }   
+
+    presenceTimerSeinpiller = createTimer(now.plusMinutes(5), [|
+                    logInfo(logName, "Seinpiller went away");
+					Presence_Seinpiller.sendCommand(OFF)
+                    presenceTimerSeinpiller = null
+	])   
+
+    PresenceMonitor_Seinpiller.sendCommand(OFF)
+end

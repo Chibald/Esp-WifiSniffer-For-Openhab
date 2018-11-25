@@ -1,0 +1,2 @@
+Switch PresenceMonitor_Seinpiller "Seinpiller" <network> ["Sniffer", "Mac:66:B4:A5:C4:15:21"]
+Switch Presence_Seinpiller "Seinpiller [MAP(home.map):%s]" <network>
