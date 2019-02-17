@@ -137,7 +137,7 @@ void Diag()
     Serial.print(F("Connection Failures: "));
     Serial.println(ConnectionFailureCount);    
   }
-  if(millis() - rebootState > REBOOTTIME)
+  if(millis() > REBOOTTIME)
   {
     Serial.print(F("Time to reboot. "));
     ESP.restart();
