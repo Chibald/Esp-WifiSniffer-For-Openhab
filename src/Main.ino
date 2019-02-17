@@ -12,8 +12,9 @@
 #define MAXDEVICES 80       // max device count to hold in memory
 #define PURGETIME 60000     // milisec to purge from memory
 #define MINRSSI -150        // RSSI sensitivity for sniffing Wifi       
-#define MAX_OH_ITEMS   5     // Maximum number of openhab items to monitor. 
+#define MAX_OH_ITEMS   5    // Maximum number of openhab items to monitor. 
 #define SENDTIME  15000     // time to send to openhab
+#define REBOOTTIME  86400000   // time to reboot esp to refresh list
 unsigned int channel = 2;   // Wifi channel for AP mode
 unsigned long sendEntry, showState;
 
